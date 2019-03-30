@@ -1,0 +1,22 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+
+    <div class="listPessoas">
+        <h1>Contacts</h1>
+    </div>
+
+    <ul class="list-group">
+        {% for pessoa in pessoas %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Nome:{{ pessoa.nome }}, Email: {{ pessoa.email }}
+                <div>
+                    <a href="/update/{{ pessoa.id }}" class="btn btn-update"><i class="fas fa-user-edit"></i></a>
+                    <a href="/pessoa/{{ pessoa.id }} /endereco/create" class="btn"><i class="fas fa-map-marker"></i></a>
+                    <button data-id="{{ pessoa.id }}" type="button" class="btn btn-delete" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-times"></i></button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

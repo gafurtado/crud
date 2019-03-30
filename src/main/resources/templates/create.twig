@@ -1,0 +1,55 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+
+    <div class="listPessoas">
+        <h1>New Contact</h1>
+    </div>
+
+    <form action="/create" method="POST" class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="hidden" value="{{pessoa.id}}" name="id" class="form-control" id="inputNome" required>
+            </div>      
+          </div>
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" value="{{ pessoa.nome }}" name="nome" class="form-control" id="inputName" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail">Email</label>
+                <input type="email" name="email" class="form-control" id="inputEmail" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="senha" class="form-control" id="inputPassword" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCpf">CPF</label>
+                <input type="text" name="cpf" class="form-control" id="inputCpf" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputGender">Gender</label>
+                <select id="inputGender" name="sexo" class="form-control">
+                    <option selected>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputAge">Age</label>
+                <input type="text" name="idade" class="form-control" id="inputAge" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch">
+                <label class="custom-control-label" for="customSwitch">Agree to terms and conditions</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary" >Save</button>
+    </form>
+
+{% endblock %}
